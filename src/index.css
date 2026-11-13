@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Chakra Petch', 'Tajawal', sans-serif;
+    --font-body: 'Tajawal', 'Chakra Petch', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: #060709;
+    color: #f3f4f6;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* 3D Card Flip & Lighting Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* eFootball Shimmer and Card Special Effects */
+.card-epic-glow {
+  box-shadow: 0 0 25px rgba(234, 179, 8, 0.45), 0 0 50px rgba(168, 85, 247, 0.25);
+}
+
+.card-bigtime-glow {
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.55), 0 0 60px rgba(16, 185, 129, 0.3);
+}
+
+.card-legend-glow {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), inset 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+.card-highlight-glow {
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), 0 0 45px rgba(220, 38, 38, 0.25);
+}
+
+/* Turf pitch texture */
+.pitch-stripes {
+  background: repeating-linear-gradient(
+    0deg,
+    #134e24 0px,
+    #134e24 40px,
+    #165c2b 40px,
+    #165c2b 80px
+  );
+}
+
+.pitch-stripes-alt {
+  background: repeating-linear-gradient(
+    90deg,
+    #14532d 0px,
+    #14532d 35px,
+    #166534 35px,
+    #166534 70px
+  );
+}
+
+/* Red eFootball laser glow */
+.efootball-laser-top {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(220, 38, 38, 0.45), transparent);
+}
+
+.efootball-ambient-vignette {
+  background: radial-gradient(circle at center, transparent 40%, rgba(3, 4, 7, 0.85) 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090b10;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+@keyframes cardLift3D {
+  0% {
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+  40% {
+    transform: translateY(-22px) scale(1.12) rotateX(14deg) rotateY(-8deg);
+  }
+  100% {
+    transform: translateY(-14px) scale(1.08) rotateX(6deg) rotateY(0deg);
+  }
+}
+
+@keyframes cardFlyToPitch {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.08) rotateX(12deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translateY(-180px) scale(0.92) rotateX(28deg) rotateY(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-320px) scale(0.55) rotateX(0deg) rotateY(360deg);
+  }
+}
+
+@keyframes pitchCardLand {
+  0% {
+    transform: scale(1.45) translateY(20px) rotateX(25deg);
+    filter: brightness(1.6);
+  }
+  60% {
+    transform: scale(0.95) translateY(-3px) rotateX(0deg);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(1) translateY(0) rotateX(0deg);
+    filter: brightness(1);
+  }
+}
+
+.animate-card-lift-3d {
+  animation: cardLift3D 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-card-fly-pitch {
+  animation: cardFlyToPitch 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-pitch-land {
+  animation: pitchCardLand 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+

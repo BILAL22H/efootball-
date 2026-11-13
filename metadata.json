@@ -1,0 +1,6 @@
+{
+  "name": "eFootball Cards: Ultimate Draft",
+  "description": "Interactive eFootball-inspired draft card game. Build your dream squad, draft legendary players, simulate tactical matches, open special packs, and compete with friends.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
